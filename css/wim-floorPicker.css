@@ -1,0 +1,67 @@
+ol {
+    display: block;
+    list-style-type: decimal;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+a, button, h1, h2, h3, h4, h5, h6, input, ol, p, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    vertical-align: baseline;
+    background: transparent;
+    list-style: none;
+    overflow: visible;
+}
+.widget-floorpicker-slider {
+    position: relative;
+    transition: all 120ms ease-in-out;
+}
+.app-vertical-widget-holder {
+    position: absolute;
+    width: 29px;
+    bottom: 33px;
+    z-index: 4;
+    right: 20px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.app-vertical-item {
+    margin-top: 3px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.widget-floorpicker {
+    background: white;
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    width: 29px;
+    overflow: hidden;
+}
+.widget-floorpicker-button {
+    z-index: 2;
+    color: #666;
+    font-size: 14px;
+    background-color: rgba(255,255,255,1);
+    width: 29px;
+    height: 29px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.16 ease-out;
+}
+.widget-floorpicker-button-selected {
+    color: red !important;
+    background: #f1f1f1;
+    font-weight: bold;
+}
+.widget-floorpicker-button-alternate {
+	background-color: #74787B;
+	color: white;
+}

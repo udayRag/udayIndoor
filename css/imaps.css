@@ -1,0 +1,174 @@
+@CHARSET "ISO-8859-1";
+
+#dynamicButtons{
+    position:absolute;
+    right:2px;
+    top:40%;
+        background-color: transparent;
+        border-color:cyan;
+    
+    
+}
+#div_FloorButtons
+{
+    position:absolute;
+    height : 25%;
+    left:4px;
+    top:40%;
+     background-color: transparent;
+        border-color:cyan;
+}
+#btn_floorsFlip{
+	position:absolute;
+    left:55px;
+    top:50%;
+    background-color:cyan;
+    border-radius:25px;
+    
+    
+}
+#btn_dynamicRouteFlip{
+	position:absolute;
+    right:200px;
+    top:48%;
+    background-color:cyan;
+    border-radius:25px;
+    
+    
+}
+
+.cmsrc input {
+    width: 100%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 0;
+    font-size: 13px;
+    position: margin:0;
+    background-color: #FFF;
+    height: 35px;
+    left: 30px;
+    right: 30px;
+    padding: 5px 5px 5px 0;
+}
+.btn-round {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.btn-round.btn-lg {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-round.btn-sm {
+    width: 34px;
+    height: 34px;
+}
+
+.btn-round.btn-xs {
+    width: 24px;
+    height: 24px;
+}
+
+#div_roundButtons {
+	position: absolute;
+	bottom: 10%;
+	margin-top: -15%;
+	margin-left: 1%;
+}
+
+.hidden{
+	display:none;
+}
+
+/*auto complete*/
+
+.ui-autocomplete {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	float: left;
+	display: none;
+	min-width: 160px;
+	_width: 160px;
+	padding: 4px 0;
+	margin: 2px 0 0 0;
+	list-style: none;
+	background-color: #ffffff;
+	border-color: #ccc;
+	border-color: rgba(0, 0, 0, 0.2);
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	*border-right-width: 2px;
+	*border-bottom-width: 2px; . ui-menu-item > a.ui-corner-all { display :
+	block;
+	padding: 3px 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 18px;
+	color: #555555;
+	white-space: nowrap; &. ui-state-hover , &.ui-state-active { color :
+	#ffffff;
+	text-decoration: none;
+	background-color: #0088cc;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	background-image: none;
+}
+
+}
+}
+.ui-autocomplete {
+	max-height: 200px;
+	overflow-y: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+	/* add padding to account for vertical scrollbar */
+	padding-right: 20px;
+}
+
+.ui-menu .ui-menu-item a {
+	/* //  background:red; */
+	height: 14px;
+	font-size: 12px;
+}
+
+.help-dialog{
+	 border: 1px solid #B8B8B8;
+	 height:100%;
+	 width: 100%;
+	 position:absolute;
+	 margin-left:-20px;
+}
+
+/* helpimage related */
+.helpImage{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+.processImage{
+	position: absolute;
+	width: 20%;
+    top: 45%;
+    left: 45%;
+}
+
+#wayToLnDCenter{
+	color: rgb(92,184,92);
+	font:bold;
+	text-decoration: underline
+	
+}

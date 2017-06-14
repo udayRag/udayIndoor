@@ -1,0 +1,102 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<widget 
+	xmlns = "http://www.w3.org/ns/widgets" 
+   xmlns:gap = "http://phonegap.com/ns/1.0" 
+   id = "com.uday.test" 
+   version = "1.0">
+   
+   <name>Uday Indoor</name>
+   
+   <description>
+      Uday Indoor Phone Gap
+   </description>
+   
+   <author href = "" email = "uday.cyient@gmail.com">
+      Uday
+   </author>
+   
+   <preference name = "permissions" value = "none"/>
+   
+   <icon src = "res/icon/android/search2.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" />
+	  <icon src = "res/icon/android/ajax-loader.gif" 
+      gap:platform = "android" gap:qualifier = "ldpi" />
+	  <icon src = "res/icon/android/Ajay Agarwal.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" />
+	  <icon src = "res/icon/android/Amit.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Bala Tangirala.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/BlueMarker.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/CYIENT_logo.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/dinner.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/directions.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/from.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/gareth_bathers.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/geolocation_marker.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/geolocation_marker_heading.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/go-mark.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/GreenMarker.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/group.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/group.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/help.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/images.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Ishan.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/JohnRenard.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Krishna Bodanapu.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Krishnamohan Vajhala.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/logo.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/lunch.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Manish Arora.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Mohan Reddy.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/N J Joseph.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/marker-green.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/marker-blue.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/marker-gold.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/navigate.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/navigation-icon.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/noimage.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/pia_abraham.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Picture3.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Raghu M.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Raghubabu Challagulla.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Rajandrav Dayal.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Rajanikanth Muppalla.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/RedMarker.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Sanjay Sahay.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Santosh Patlolla.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Screenshot_2016-07-10-16-56-12.jpeg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Search.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/search1.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/search2.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Search4.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/slide.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/slide-02.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/slide-03.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Sukanta.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/sunil.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/tea.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/to.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Venkata Mane.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/Venki Padmanabhan.jpg" 
+      gap:platform = "android" gap:qualifier = "ldpi" /><icon src = "res/icon/android/YellowMarker.png" 
+      gap:platform = "android" gap:qualifier = "ldpi" />
+	<!--	
+   <icon src = "res/icon/android/drawable-mdpi/tp_icon.png" 
+      gap:platform = "android" gap:qualifier = "mdpi" />
+		
+   <icon src = "res/icon/android/drawable-hdpi/tp_icon.png" 
+      gap:platform = "android" gap:qualifier = "hdpi" />
+		
+   <icon src = "res/icon/android/drawable-xhdpi/tp_icon.png" 
+      gap:platform = "android" gap:qualifier = "xhdpi" />
+		
+   <icon src = "res/icon/android/drawable-xxhdpi/tp_icon.png" 
+      gap:platform = "android" gap:qualifier = "xxhdpi" />
+   -->
+ <!--  <icon src = "rres/icon/ios/.png.png.png" gap:platform = "ios" gap:qualifier = ""/>
+   <icon src = "res/icon/ios/icon-57.png" gap:platform = "ios" width = "57" height = "57" />
+   <icon src = "res/icon/ios/icon-72.png" gap:platform = "ios" width = "72" height = "72" />
+   <icon src = "res/icon/ios/icon-57-2x.png" gap:platform = "ios" width = "114" height = "114" />
+   <icon src = "res/icon/ios/icon-72-2x.png" gap:platform = "ios" width = "144" height = "144" />-->
+   
+</widget>

@@ -1,0 +1,40 @@
+for(var i = 0; i < tasks.length; i++) {
+    var cube = tasks[i];
+	var data = "<table class='table'>" + 
+				"<thead>"+ 
+				 "<tr>"+
+					"<th>Event Time</th>"+
+					"<th>Event</th>"+
+					"<th>Speaker</th>"+
+			     "</tr>"+
+				"</thead>"+
+				"<tbody>";
+	var data1 = "";
+	var data2 = "</tbody>"+
+				"</table>";
+				var mainData="";
+    for(var j = 0; j < cube.length; j++) {
+
+			if (searchedData==cube[j])
+			{
+					
+				      
+												  
+								data1 =	 data1 +  "<tr class='danger'>"+
+													"<td>" + cube[j+1] +"-"+ cube[j+2] + "</td>"+
+													"<td>"+cube[j+3]+"</td>"+
+													"<td>OnGoing</td>"+
+												  "</tr>"+
+												  
+				
+			}
+		
+		
+		
+    }
+	
+													
+							mainData = data + data1 + data2;			
+								   
+								   showData(mainData);
+}

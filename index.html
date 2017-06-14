@@ -1,0 +1,359 @@
+<html>
+<head>
+<title>imaps beta</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<script src="./js/jquery-2.2.3.min.js"></script>
+<script src="./js/jquery-ui.js"></script>
+<!-- <script src="./js/jquery.mobile-1.4.5.min.js" ></script> -->
+<script src="./js/bootstrap.min.js"></script>
+<!-- <script src="./js/jquery.slicknav.js"></script>
+<script src="./js/expandingSearchbar.js"></script> -->
+<!-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> -->
+<!-- <script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_yXv5EjvGqcW7IsbvP0-AulH3AcnRP7Y"></script> -->
+<script src="./js/ol.js"></script>
+<!-- <script src="./js/wms.js"></script> -->
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+<link rel="stylesheet" href="./css/font-awesome.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="./css/slicknav.css" />
+<link rel="stylesheet" type="text/css"	href="./css/expandingSearchbar.css" /> -->
+<link rel="stylesheet" type="text/css" href="./css/ol.css" />
+<link rel="stylesheet" href="./css/imaps.css">
+<link rel="stylesheet" href="./css/wim-floorPicker.css">
+<script src='./js/wim-urlHandler.js'></script>
+<script src='./js/wim-ui.js'></script>
+<script src='./js/wim-nav.js'></script>
+
+
+
+
+
+</head>
+<style>
+#screen {
+	position: relative;
+	width: device-width;
+	height: 100%;
+}
+
+.ui-helper-hidden-accessible {
+	display: none;
+}
+
+
+
+.topBar {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background-color: #74787B;
+	opacity: 0.9;
+}
+
+.hidden {
+	display: none;
+}
+
+#content {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	/* top : 100px; */
+	background-color: #eeeeee;
+}
+
+#bottomBar {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* //height : 100px; */
+	background-color: #65A8D4;
+	opacity: 0.9;
+}
+
+.searchbox-open {
+	width: 90%
+}
+
+#btnnavigate {
+	background-color:
+}
+
+a:active, a:hover {
+	outline: 0;
+	background-color: transparent;
+}
+
+a {
+	background-color: transparent !important;
+}
+
+.navbar-inverse {
+	background-color: #74787B ;
+}
+
+ul {
+	margin-top: 10px !important;
+}
+
+.nav>li {
+	padding: 3px;
+}
+
+.form-control {
+	height: 30px;
+}
+
+#btnnavigate {
+	background-color: darkorange !important;
+	line-height: 1.1 !important;
+}
+
+.navbar-right {
+	margin-right: 0px !important;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	margin-top: -10px;
+}
+
+#screen>header>div>div>div>ul>li:nth-child(6)>a {
+	margin-top: -5px !important;
+	margin-left: -20px !important;
+}
+
+#searchTxt {
+	padding: 3px !important;
+}
+
+.btn-primary {
+	font-size: 11px;
+}
+
+.input-group-addon {
+ background-color: none !important; 
+border: 0px solid #74787B !important;  
+    border-radius: 0;
+    padding: 0px;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 0;
+    text-align: center;
+}
+</style>
+
+<body onload="getJson()">
+
+	<div id="screen">
+		<div id="content"></div>
+	
+		<div id = "topBar" class = "topBar" style="background-color: #74787B !important">
+		   <div class = "bs-example bs-example-form">
+		      <div class = "row" style="margin-right:0px">
+		            <div class = "input-group">
+		               <span class = "input-group-addon" style="">
+		                <img src="./res/icon/android/search2.png" width="35px" style="padding-left:10px;" >
+		               </span>
+		               <input style="margin-top:5px" type = "text" class = "form-control" id="inputStart">
+		               <span class = "input-group-addon" onclick="showDestination()">
+		                  <img src="./res/icon/android/navigation-icon.png" width="25px"  >
+		               </span>
+		            </div><!-- /input-group -->
+		      </div><!-- /.row -->
+		      <div id="div_destination" class="row" style="margin-right:0px">
+		        <div class = "input-group">
+		             <span class = "input-group-addon" style="visibility:hidden">
+		                 <img src="./res/icon/android/search2.png" width="35px" style="padding-left:10px;" >
+		               </span>
+		               <input style="margin-top:5px" type = "text" class = "form-control" id="destination">
+		               <span class = "input-group-addon">
+		               <img src="./res/icon/android/navigate.png" onclick="navigateClick()" width="25px" >
+		                 <!--  <button id="buttonNavigate" onclick="navigateClick()" class="btn btn-primary" style="width:25px;text-align:left">G</button> -->
+		               </span>
+		            </div><!-- /input-group -->
+		      </div>
+				<div id="div_SearchType" class="row" style="margin-right: 0px">
+					<div class="input-group">
+						<span class="input-group-addon" style="visibility: hidden">
+							<img src="./res/icon/android/Search.png" width="50px">
+						</span>
+						<div class="radio" style="text-align: center; color: white">
+							<label> <input type="radio" name="optionsRadios"
+								id="optionsRadios1" value="option1" checked>Block
+							</label> <label> <input type="radio" name="optionsRadios"  readonly="readonly"disabled="disabled"
+								id="optionsRadios2" value="option2">Project
+							</label> <label> <input type="radio" name="optionsRadios" disabled="disabled"
+								id="optionsRadios3" value="option3">People
+							</label>
+						</div>
+						<span class="input-group-addon" style="visibility: hidden">
+							<img src="./res/icon/android/navigate.png" onclick="navigateClick()"
+							width="25px"> <!--  <button id="buttonNavigate" onclick="navigateClick()" class="btn btn-primary" style="width:25px;text-align:left">G</button> -->
+						</span>
+					</div>
+					<!-- /input-group -->
+				</div>
+
+			</div>
+		</div>
+	
+	<!-- 		<header>
+				<div class="navbar navbar-inverse">
+					<div class="container">
+						Header
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse"
+								data-target=".navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+						</div>
+	
+						<div class=" navbar-right">
+							<ul class="nav navbar-nav">
+								<li><input id=inputStart type="text" class="form-control"
+									placeholder="Start" style="display: none"></li>
+								<li><input id="destination" type="text" class="form-control"
+									placeholder="Destination" style="display: none"></li>
+								<li><button id="btnnavigate" class="btn btn-primary"
+										style="display: none" onclick="navigateClick()">Navigate</button></li>
+								<li><a onclick="showDirections()"><span><img
+											src="images/directions.png" width="25px" height="25px"></span></a></li>
+								<li><input id="searchTxt" type="text"
+									class="form-control searchbox-input" style="display: none"></li>
+								<li><a onclick="showSearch()"><span class=""><i
+											class="fa fa-search  " aria-hidden="true"></i></span></a></li>
+	
+	
+							</ul>
+						</div>
+					</div>
+				</div>
+			</header> -->
+	
+	
+	
+	
+			<div id="dynamicButtons" class="app-vertical-widget-holder noprint">
+				<div class="app-vertical-item"></div>
+				<div class="widget-floorpicker noselect">
+					<ol id="routeChangeList" class="widget-floorpicker-slider">
+	
+					</ol>
+				</div>
+			</div>
+	
+			<div id="div_FloorButtons" class="app-vertical-widget-holder noprint">
+				<div class="app-vertical-item"></div>
+				<div class="widget-floorpicker noselect">
+					<ol id="floorChangeList" class="widget-floorpicker-slider">
+						<li>
+							<button class="widget-floorpicker-button"
+								onclick="floorChangeHandler.changeFloor( 4 , this )">4</button>
+						</li>
+						<li>
+							<button class="widget-floorpicker-button widget-floorpicker-button-alternate"
+								onclick="floorChangeHandler.changeFloor( 3 , this )">3</button>
+						</li>
+						<li>
+							<button class="widget-floorpicker-button"
+								onclick="floorChangeHandler.changeFloor( 2 , this )">2</button>
+						</li>
+						<li>
+							<button class="widget-floorpicker-button widget-floorpicker-button-alternate"
+								onclick="floorChangeHandler.changeFloor( 1 , this )">1</button>
+						</li>
+						<li>
+							<button
+								class="widget-floorpicker-button widget-floorpicker-button-selected"
+								onclick="floorChangeHandler.changeFloor( 0 , this )">G</button>
+						</li>
+					</ol>
+				</div>
+			</div>
+			<div id="div_roundButtons" style="width: 70px">
+				<div class="row">
+					<div class="col-xs-4"></div>
+					<div class="col-xs-4">
+						<button type="button" class="btn btn-danger btn-round">
+							<i class="fa fa-arrows" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="col-xs-4"></div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4">
+						<button type="button" id="btnHelp" class="btn btn-warning  btn-round" onclick = "showHideHelpImage()">
+							<i class="fa fa-question" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="col-xs-4"></div>
+					<div class="col-xs-4">
+						<button type="button" class="btn btn-success btn-round"
+							onclick="redirectCalender()">
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4"></div>
+					<div class="col-xs-4">
+						<button type="button" id="geolocate"
+							class="btn btn-primary btn-round">
+							<i class="fa fa-map-marker" aria-hidden="true"></i>
+						</button>
+					</div>
+					<div class="col-xs-4"></div>
+				</div>
+			</div>
+			
+    		<img  id="dialog" class = "helpImage" src="./res/icon/android/help.png" onclick = "showHideHelpImage()"></img>
+    		<img  id="process" class = "processImage" src="./res/icon/android/ajax-loader.gif" ></img>
+			
+			
+	
+			<div id="popup" title="Welcome to ol3">
+				<img src="./res/icon/android/RedMarker.png"></img>
+			</div>
+	
+			<div id="startMarker" title="start point">
+				<img src="./res/icon/android/from.png"  width = "32"></img>
+			</div>
+	
+			<div id="destinationMarker" title="destination point" >
+				<img src="./res/icon/android/to.png" width = "32"></img>
+			</div>
+			
+			<div id="cyientLogoMarker" title="Cyient Manikonda" >
+				<img src="./res/icon/android/CYIENT_logo.png" width = "64"></img>
+			</div>
+			
+			<img id="geolocation_marker" src="./res/icon/android/geolocation_marker.png" />
+			
+			<div id="wayToLnDCenter"><p>WAY TO UG DELIVERY MEET</p></div>
+
+	</div>
+
+
+	<div id="info"></div>
+	
+	<!--  <div class="button">
+        <button id="geolocate">Geolocate Me!</button>
+    </div> -->
+
+	<script>
+		initUI();
+	</script>
+	<script src='./js/wim-open-maps.js'></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".ui-loader").hide();
+		});
+		$('#content > div > div.ol-overlaycontainer-stopevent > div.ol-attribution.ol-unselectable.ol-control.ol-collapsed').html("Powered by CYIENT")
+	</script>
+
+
+
+</body>
+</html>

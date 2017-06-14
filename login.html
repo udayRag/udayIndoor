@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
+<link rel="stylesheet"	href="./css/font-awesome.min.css">
+<link rel="stylesheet" href="./css/imaps.css">
+<style>
+body {
+    
+    
+    background:#333;
+}
+
+.ui-helper-hidden-accessible{
+display : none;
+}
+
+.form_bg {
+    background-color:#eee;
+    color:#666;
+    padding:20px;
+    border-radius:10px;
+    position: absolute;
+    border:1px solid #fff;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 320px;
+    height: 280px;
+    overflow:hidden;
+    
+}
+html, body, .container {
+  position: relative;
+    height: 100%;
+    width:100%;
+     overflow: hidden;
+   
+}
+.container {
+    display: table;
+    vertical-align: middle;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.align-center {
+    
+    text-align:center;
+}
+</style>
+
+ <script src="./js/jquery-2.2.3.min.js"></script>
+ <script src="./js/jquery-ui.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+ <script src = './js/wim-users.js'></script>
+ <script type="text/javascript">
+ 
+
+ function loginUser(){
+		var email = $('#userid').val();
+		console.log(email);
+		var isSuccess = false;
+
+		if(((email.indexOf("@gmail.com"))>0)||((email.indexOf("@cyient.com"))>0)||((email.indexOf("@yahoo.com"))>0)||((email.indexOf("@outlook.com"))>0)){
+			isSuccess = true;
+		}
+		if( isSuccess ){
+			console.log(loginUser);
+			window.location.href = './index.html';
+		}else{
+			alert('Invalid email');
+		}
+	}
+ </script>
+</head>
+<body>
+<div class="container">
+    
+        <div class="form_bg">
+        <div class="row">
+           <!--  <form> -->
+                 <h2 class="text-center">Login to iMaps</h2>
+                <br/>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="userid" placeholder="Email">
+                </div>
+                    <br/>
+                   <div class="align-center">
+                <button class="btn btn-default" id="login" style="border-radius:15px" onclick = "loginUser()">Login</button>
+                    </div>
+           <!--  </form> -->
+        </div>
+    </div>
+</div>
+        
+
+<!-- Omit this part : Just a footer -->
+
+</body>
+</html>

@@ -1,0 +1,1991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Case</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="d:\calender\style.css">
+  <link rel="stylesheet" href="d:\calender\font-awesome.min.css">
+  <link rel="stylesheet" href="d:\calender\owl.carousel.css">
+  <link rel="stylesheet" href="d:\calender\owl.transitions.css">
+  <link rel="stylesheet" href="d:\calender\animate.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://rack.pub/clock.min.js"></script>
+  
+  <style>
+  .modal-header, h4, .close {
+      background-color: #009999;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  </style>
+
+  <script  type="text/javascript">
+function show(){
+        $("#myModal").modal();
+    }
+	
+
+	
+function check(varDate, time){
+var tasks = [];
+var i=0;
+var date = "12-07-2016";
+var texts = [], lis = document.getElementsByTagName("figure");
+
+for(i=0, im=lis.length; im>i; i++) {
+
+var str = lis[i].firstChild.nodeValue;
+
+var res = str.split(" ")[0];
+
+
+var arr=res.split('-');
+var from=arr.shift(); 
+from =  from.replace(":", "");
+
+var to=arr.pop();
+to =  to.replace(":", "");
+
+
+var subject = document.getElementsByTagName("h5");
+var event = subject[i].firstChild.nodeValue;
+//tasks[i]="ashwini";
+//tasks.push("kumar");
+
+//tasks[i].push({"12-07-2016",from ,  to , event});
+
+if (str =="09:00-09:30 am")
+{
+date="13-07-2016";
+
+} 
+var tasks2 = new Array(date.toString(),from.toString() ,  to.toString() , event.toString());
+tasks[i] = tasks2;
+
+
+
+}
+
+
+//for(int j=0; j<tasks.length; j++) {
+//for(int k=0; k<tasks[j].length; k++) {
+//alert(tasks[j][k]);
+//}
+//}
+
+
+for(var i = 0; i < tasks.length; i++) {
+    var cube = tasks[i];
+    for(var j = 0; j < cube.length; j++) {
+        if (varDate==cube[j])
+		{
+			if (time==cube[j+1])
+			{
+					
+				    var data =   "<table class='table'>" + 
+												"<thead>"+ 
+												  "<tr>"+
+													"<th>Event Time</th>"+
+													"<th>Event</th>"+
+													"<th>Status</th>"+
+												  "</tr>"+
+												"</thead>"+
+											"<tbody>"+
+												  "<tr class='success'>"+
+													"<td>"+ tasks[i-1][j+1] +"-"+ tasks[i-1][j+2] + "</td>"+
+													"<td>"+tasks[i-1][j+3]+"</td>"+
+													"<td>Previous</td>"+
+												 " </tr>"+
+												  "<tr class='danger'>"+
+													"<td>" + cube[j+1] +"-"+ cube[j+2] + "</td>"+
+													"<td>"+cube[j+3]+"</td>"+
+													"<td>OnGoing</td>"+
+												  "</tr>"+
+												  "<tr class='info'>"+
+													"<td>" + tasks[i+1][j+1] +"-"+ tasks[i+1][j+2] + "</td>"+
+													"<td>"+tasks[i+1][j+3]+"</td>"+
+													"<td>Next</td>"+
+												  "</tr>"+
+												"</tbody>"+
+											  "</table>";
+										
+								   
+								   showData(data);
+				
+				
+			}
+		}
+		
+		
+    }
+}
+
+}
+	function showData(data)
+	{
+		 $("#myModal2").modal();
+		document.getElementById("showDD").innerHTML = data;
+	
+	
+	}
+
+function submitFeedback()
+{
+	var  email = document.getElementById("email").value;
+	
+	var message =  document.getElementById("comment").value;
+
+	var rating = $('input[name=radio]:checked').val();
+	
+	//var meetingID = document.getElementById("meeting_ID");  // need  to be give 
+	
+	 window.location = 'http://172.16.53.158/indoorservice/IndoorDBService.svc/Feedback?MailId='+ email + '&aMessage='+message +'&bRating='+ rating+'&cMeetingId='+meetingID;
+
+}
+
+
+
+</script>
+<script>
+$(document).ready(function(){
+    $("#searchText").keypress(function(){
+      
+var  searchedData = document.getElementById("searchText").value;
+
+
+searchedData="Sunil";
+var tasks = [];
+var i=0;
+var date = "12-07-2016";
+var texts = [], lis = document.getElementsByTagName("figure");
+
+for(i=0, im=lis.length; im>i; i++) {
+
+var str = lis[i].firstChild.nodeValue;
+
+var res = str.split(" ")[0];
+
+
+var arr=res.split('-');
+var from=arr.shift(); 
+from =  from.replace(":", "");
+
+var to=arr.pop();
+to =  to.replace(":", "");
+
+
+var subject = document.getElementsByTagName("h5");
+var event = subject[i].firstChild.nodeValue;
+
+if (str =="09:00-09:30 am")
+{
+date="13-07-2016";
+
+} 
+
+var speakerSubject = document.getElementsByTagName("h3");
+var speakerEvent = speakerSubject[i].firstChild.nodeValue;
+
+
+var tasks2 = new Array(date.toString(),from.toString() ,  to.toString() , event.toString(),speakerEvent.toString());
+
+tasks[i] = tasks2;
+
+
+
+}
+
+
+alert(tasks);
+
+
+
+
+});
+});
+</script>
+
+  
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#top"><img src="d:\Calender\logo.png"></a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#top"><span class="glyphicon glyphicon-user"></span> Home</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Schedule</a></li>
+    </ul>
+  </div>
+</nav>
+  
+
+  
+  
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:100%;height:10%">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+
+  </ol>
+
+  <!-- Wrapper for slides -->
+    <div class="slider" style="width:100%;height:10%">
+	  <div class="carousel-inner" role="listbox">
+		<div class="item active">
+		  <img src="d:\Calender\slide.png" alt="Chania" style="width:100%;height:10%">
+		</div>
+    <div class="item">
+      <img src="d:\Calender\slide-02.png" alt="Chania" style="width:100%;height:10%">
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- Schedule -->
+        <section class="block background-color-grey-light" id="schedule">
+            <div class="container">
+			<table style="width: 100%;">
+			<tr>
+                <header>
+                    <td><h2><a href="#schedule" class="roll">Schedule</a></h2></td>
+					
+					<td><input class="form-control" id = "searchText" type="text" placeholder="Search Speaker" value=""></td>
+					 </header>
+					</tr>
+					</table>
+					
+					
+					  
+
+               
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist" style="background-color: #009CA6;">
+                    <li class="active"><a href="#september-26" role="tab" data-toggle="tab">12th July</a></li>
+                    <li><a href="#september-27" role="tab" data-toggle="tab">13th July</a></li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div class="tab-pane fade in active" id="september-26"  style="background-color: #CBDEE1;">
+                        <div class="panel-group" id="schedule-table-september-26">
+						
+                            <div class="panel panel-success">
+                                <a href="#september-26-1" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>09:30-09:40 am</figure>
+												
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Welcome Note & Agenda Overview</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Sunil Makena</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-1" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body" style="height: 03%"> 
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6" >
+											<div class="speaker"  >
+											<aside class="image" style="width: 03%;height: 03%">
+											<img src="d:\Calender\sunil.jpg" alt="" height="3" width="3">
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 2%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+    
+
+                      
+
+                   
+              
+				
+				
+			<!-- Tab panes -->
+                
+                            <div class="panel panel-success">
+                                <a href="#september-26-2" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>09:40-09:50 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Expectations from participants</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>John Renard</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-2" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\JohnRenard.jpg" alt=""> 
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()"  >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                
+
+    
+
+                        </div>
+                    </div><!-- .tab-pane -->
+
+                   
+                
+				
+				
+							<!-- Tab panes -->
+                
+                            <div class="panel panel-success">
+                                <a href="#september-26-3" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>09:50-10:15 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Organizational Strategy current and plan for 2020</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>N.J. Joseph</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-3" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+    
+
+				
+				
+				
+				
+		<!-- Tab panes -->
+              
+                            <div class="panel panel-success">
+                                <a href="#september-26-4" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>10:15-10:45 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Organizational Financial Performance</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Ajay Aggarwal</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-4" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+   
+				
+				
+				
+				<!-- Tab panes -->
+     
+                            <div class="panel panel-success">
+                                <a href="#september-26-5" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>10:45-11:15 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>UG Goals and Aspirations FY17 and FY20 </h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>John Renard</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-5" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\JohnRenard.jpg" alt=""> 
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"  onclick="show()">Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+                      
+				
+				
+						<!-- Tab panes -->
+   
+                            <div class="panel panel-success">
+                                <a href="#september-26-6" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>11:15-11:30 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Tea Break </h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3></h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-6" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+			  
+			  
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-26-7" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>11:30-11:45 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>UG Strategy-Program Velocity</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Venkata Mane</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-7" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\Venkata Mane.jpg" alt=""> 
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-26-8" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>11:45-01:00 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>UG Strategy breakout sessions on 6 focus areas</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Six Groups</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-8" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-26-9" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>01:00-02:00 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Team Lunch @ GF-Library</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3></h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-9" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+			  
+	
+                            <div class="panel panel-success">
+                                <a href="#september-26-10" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>02:00-04:00 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Presentation: Opportunity areas(Top 5 Services) Presentation: Corresponding Breakout Group</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>20 Mins /Opportunity owner 10 Mins /Group  (4*each)</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-10" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+	
+                            <div class="panel panel-success">
+                                <a href="#september-26-11" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>04:00-04:15 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Tea Break</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3></h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-11" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"  onclick="show()">Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+	  
+			  
+	
+                            <div class="panel panel-success">
+                                <a href="#september-26-12" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>04:15-05:15 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Presentation: Opportunity areas(Top 5 Services) Presentation: Corresponding Breakout Group</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>20 Mins /Opportunity owner 10 Mins /Group  (2*each)</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-12" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+	
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-26-14" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>05:15-06:15 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Present and share views/outcome of 2016 sales meet @ NAM and Demos (solutions/tools)</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Bala Tangirala & Jaishankar Jayaraman 
+														(Jeff & Dan optional)</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-14" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\Bala Tangirala.jpg" alt="">
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"  onclick="show()">Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+
+
+
+                            <div class="panel panel-success">
+                                <a href="#september-26-15" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>06:15-06:45 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Present & share views/outcome of 2016 sales meet @ Europe</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Gareth Bathers & Kshemendra Chaturvedi</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-15" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\gareth_bathers.jpg" alt=""> 
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-26-16" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>07:30-09:00 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Dinner</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Experience Center</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-16" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+                       </div>
+                    </div><!-- .tab-pane -->
+					
+	
+
+
+
+	
+				<!---  Second pane-->	
+					
+				
+				<div class="tab-pane fade" id="september-27"  style="background-color: #CBDEE1;">
+                        <div class="panel-group" id="schedule-table-september-27">
+						
+                            <div class="panel panel-success">
+                                <a href="#september-27-1" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>09:00-09:30 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Q1'17 realized and plan to meet FY17  annual budget Qrt.wise, key accounts split</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>SEA: Sukanta & Manish</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-1" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+    
+
+                      
+
+                   
+              
+				
+				
+			<!-- Tab panes -->
+                
+                            <div class="panel panel-success">
+                                <a href="#september-27-2" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>09:30-10:00 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Share two FY16 success stories</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>ANZ: Steve & Manish</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-2" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()"  >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                
+
+    
+
+                        </div>
+                    </div><!-- .tab-pane -->
+
+                   
+                
+				
+				
+							<!-- Tab panes -->
+                
+                            <div class="panel panel-success">
+                                <a href="#september-27-3" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>10:00-10:25 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Top two learnings from challenges</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>India, Africa: Amit, Ishan & Raghu</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-3" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+    
+
+				
+				
+				
+				
+		<!-- Tab panes -->
+              
+                            <div class="panel panel-success">
+                                <a href="#september-26-4" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-26">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>10:25-10:50 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Aspiration for 2020 with a goal of 4X of FY17</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Middle East: Agnel & Raghu M</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-26-4" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+   
+				
+				
+				
+				<!-- Tab panes -->
+     
+                            <div class="panel panel-success">
+                                <a href="#september-27-5" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>10:50-11:00 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Cust. Needs & Strategy building annuity accounts</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Other updates-Sanjay S</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-5" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"  onclick="show()">Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+                      
+				
+				
+						<!-- Tab panes -->
+   
+                            <div class="panel panel-success">
+                                <a href="#september-27-6" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>11:00-11:15 am</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Tea Break </h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3></h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-6" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+			  
+			  
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-27-7" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>11:15-11:45 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Competency building by meeting 90% of needs Lower Attrition by 3%</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Krishnamohan Vajhala</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-7" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\Krishnamohan Vajhala.jpg" alt=""> 
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-27-8" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>11:45-12:15 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Plan on reaching 80% utilization  Associate engagement strategy and actions</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Raghubabu Challagulla</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-8" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+										<img src="d:\Calender\Raghubabu Challagulla.jpg" alt="">
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-27-9" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>12:15-12:45 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>S3 oriented-our focus on solutions</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Rajandrav Dayal</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-9" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\Rajandrav Dayal.jpg" alt=""> 
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+			  
+	
+                            <div class="panel panel-success">
+                                <a href="#september-27-10" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>12:45-01:15 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Geo wise groups alignment and SME strategy support for BD/Presales/solution execution-Structure</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Sunil Kumar Makkena</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-10" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\sunil.jpg" alt=""> 
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+	
+                            <div class="panel panel-success">
+                                <a href="#september-27-11" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>01:15-02:15 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Lunch @ GF-Library</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3></h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-11" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"  onclick="show()">Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+	  
+			  
+	
+                            <div class="panel panel-success">
+                                <a href="#september-27-12" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>02:15-03:00 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Sales force & deal margin template processes</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Rajanikanth Muppalla</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-12" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\Rajanikanth Muppalla.jpg" alt="">
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+	
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-27-14" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>03:00-03:30 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>IP tools / automation (POC Exec)</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Santosh Patlolla</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-14" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\Santosh Patlolla.jpg" alt="">
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"  onclick="show()">Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+
+
+
+                            <div class="panel panel-success">
+                                <a href="#september-27-15" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>03:30-04:00 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>HR key strategies</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>NAM</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-15" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn" onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+			  
+
+                            <div class="panel panel-success">
+                                <a href="#september-27-16" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>04:00-04:15 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Tea Break</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3></h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-16" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+							
+							
+							    <div class="panel panel-success">
+                                <a href="#september-27-17" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>04:15-04:45 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>DLM updates (Design Led Manufacturing)</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Venky Padmanabhan</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-17" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<!--<img src="d:\Calender\sunil.jpg" alt=""> -->
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+		
+
+
+
+							    <div class="panel panel-success">
+                                <a href="#september-27-18" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>04:45-05:15 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Marketing support-plan ahead</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Pia Abraham</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-18" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\pia_abraham.jpg" alt=""> 
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+
+							    <div class="panel panel-success">
+                                <a href="#september-27-19" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>05:15-05:30 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Key takeaways </h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>Sunil Makkena</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-19" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\sunil.jpg" alt="">
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+
+
+							    <div class="panel panel-success">
+                                <a href="#september-27-20" class="panel-header" data-toggle="collapse" data-parent="#schedule-table-september-27">
+                                    <div class="row">
+                                        <div class="col-md-2 col-sm-2">
+                                            <div class="time">
+                                                <i class="fa fa-clock-o"></i>
+                                                <figure>05:30-05:45 pm</figure>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="title"><h5>Way forward & Closing comments</h5></div>
+                                        </div>
+										 <div class="col-md-4 col-sm-4">
+                                            <div class="title"><h3>John Renard</h3></div>
+                                        </div>
+                                    </div>
+     
+                                </a><!-- .panel-header -->
+                                <div id="september-27-20" class="panel-collapse collapse description" style="background-color: white;">
+                                    <div class="row">
+									  <div class="panel-body">
+                                        <div class="col-md-2 col-sm-2">
+										</div>
+                                          
+											<div class="col-md-6 col-sm-6">
+											<div class="speaker"  style="width: 10%;height: 10%">
+											<aside class="image">
+											<img src="d:\Calender\JohnRenard.jpg" alt="">
+											</aside>
+
+											</div>
+										</div>
+										<div class="col-md-4 col-sm-4" style="padding-top: 10%" >
+										
+												<button type="submit" class="btn btn-primary" id="myBtn"onclick="show()" >Feedback </button>
+											
+										
+											</div><!-- .col-md-3 -->
+                                            </div>
+                                    </div>
+                                </div><!-- .panel-collapse -->
+                            </div><!-- .panel -->
+						
+							
+                       </div>
+                    </div><!-- .tab-pane -->
+					
+					
+              </div><!-- .tab-content -->	
+			  </div><!-- .tab-content -->	
+           </div><!-- .container -->
+        </section>
+        <!-- end Schedule -->
+
+    
+	
+
+
+  
+ <!-- Trigger the modal with a button --> 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" >
+        <div class="modal-header" style="padding:35px 50px;background-color:#009999">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h5><span class="glyphicon glyphicon-list-alt" >Feedback</span> </h5>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form">
+           
+          
+            
+          <div class="form-group">
+          <label for="comment">My suggestions are:</label>
+          <textarea class="form-control" rows="8" cols="60" id="comment"></textarea>
+           </div>
+
+
+      
+           
+            <div class="form-group">
+<!--               <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label> -->
+<!--               <input type="text" class="form-control" id="psw" placeholder="Enter password"> -->
+             
+            <label class="ss-q-title"  for="radio" style="float: left;margin-right:5px;">Please rate your experience:</label> 
+             <input name="radio" type="radio" value="1"  class="star" id="group_0_1" />
+                   <input name="radio" type="radio" value="2"  class="star" id="group_0_2" />
+                     <input name="radio" type="radio" value="3"  class="star" id="group_0_3" />
+                     <input name="radio" type="radio" value="4"  class="star" id="group_0_4" />
+                     <input name="radio" type="radio" value="5"  class="star" id="group_0_5" />
+          
+            </div>
+           <div class="form-group">
+                <div class="ss-form-entry">
+            <label  for="entry_4">Your email address:</label>
+            <input type="text" name="email" id ="email" value="" size="60" class="form-control" id="entry_4">
+          </div>
+            </div>
+              <button type="submit" class="btn btn-success btn-block" style="background-color:#009999" onclick="submitFeedback()" ><span class="glyphicon glyphicon-off"></span> Submit</button>
+          </form>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+
+ <button type="button" class="btn btn-success btn-block" style="background-color:#009999" onclick="check('12-07-2016','0940')" ><span class="glyphicon glyphicon-off"></span> Submit</button>
+  
+
+  
+  
+  <!-- Modal -->
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Events</h4>
+      </div>
+      <div class="modal-body" id="showDD" >
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+</body>
+</html>
+
